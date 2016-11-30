@@ -1,8 +1,16 @@
 #!/bin/bash
 set -e
 
-git clone --depth=1 https://git.videolan.org/git/ffmpeg.git /root/ffmpeg
-cd /root/ffmpeg
+cd /root
+
+wget https://scan.coverity.com/download/linux64 --post-data "token=${DL_TOKEN}&project=FFmpeg%2FFFmpeg" -O coverity_tool.tgz
+tar xaf coverity_tool.tgz
+rm coverity_tool.tgz
+mv cov-analysis-linux64-* cov-analysis-linux64
+export PATH="${PATH}:${PWD}/cov-analysis-linux64/bin"
+
+git clone --depth=1 https://git.videolan.org/git/ffmpeg.git ffmpeg
+cd ffmpeg
 
 echo "Configuring..."
 ./configure --enable-gpl --enable-nonfree --enable-version3 --enable-debug=3 --assert-level=2 --cpu=core2 \
