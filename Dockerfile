@@ -7,19 +7,19 @@ RUN \
 	apt-get -y update && \
 	apt-get -y install build-essential yasm pkg-config git wget cmake unzip subversion && \
 	apt-get -y install --no-install-recommends \
-		libspeex-dev libvpx-dev libopenjpeg-dev libvorbis-dev \
-		libx264-dev libx265-dev libdc1394-22-dev libxvidcore-dev libfreetype6-dev \
+		libspeex-dev libvpx-dev libopenjpeg-dev libvorbis-dev libssh-dev libtesseract-dev \
+		libx264-dev libx265-dev libdc1394-22-dev libxvidcore-dev libfreetype6-dev libchromaprint-dev libleptonica-dev libavc1394-dev \
 		libmodplug-dev libpulse-dev libmp3lame-dev libbluray-dev libx11-dev libxcb-shm0-dev libxcb-xfixes0-dev libxcb-shape0-dev libx11-xcb-dev \
-		libtheora-dev libssl-dev libschroedinger-dev libcaca-dev libopus-dev \
+		libtheora-dev libssl-dev libschroedinger-dev libcaca-dev libopus-dev librtmp-dev libshine-dev \
 		libcdio-dev libcdio-cdda-dev libcdio-paranoia-dev libcdparanoia-dev libopenal-dev libopencore-amrnb-dev libopencore-amrwb-dev libvo-amrwbenc-dev libgsm1-dev \
-		libvdpau-dev libva-dev libc6-dev libgme-dev libwebp-dev libopencv-dev \
-		libass-dev frei0r-plugins-dev libsoxr-dev libfdk-aac-dev \
-		libfontconfig1-dev libbs2b-dev libzvbi-dev libtwolame-dev libsmbclient-dev \
-		nvidia-cuda-dev libnppi7.5 libnppc7.5 && \
+		libvdpau-dev libva-dev libc6-dev libgme-dev libwebp-dev libopencv-dev libv4l-dev libwavpack-dev  \
+		libass-dev frei0r-plugins-dev libsoxr-dev libfdk-aac-dev libfribidi-dev librubberband-dev libiec61883-dev \
+		libfontconfig1-dev libbs2b-dev libzvbi-dev libtwolame-dev libsmbclient-dev flite1-dev \
+		nvidia-cuda-dev libnppi7.5 libnppc7.5 libcrystalhd-dev libgcrypt20-dev && \
 	apt-get -y clean && \
 	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# TODO: libilbc(https://github.com/TimothyGu/libilbc) libxavs 
+# TODO: zimg openh264  
 
 RUN \
 	cd /root && \
