@@ -1,9 +1,8 @@
-FROM ubuntu:16.04
+FROM ubuntu:16.10
 
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN \
-	sed -i 's/universe/universe multiverse/' /etc/apt/sources.list && \
 	apt-get -y update && \
 	apt-get -y install build-essential yasm nasm pkg-config git wget cmake unzip subversion autoconf automake libtool && \
 	apt-get -y install --no-install-recommends \
@@ -15,7 +14,7 @@ RUN \
 		libvdpau-dev libva-dev libc6-dev libgme-dev libwebp-dev libopencv-dev libv4l-dev libwavpack-dev  \
 		libass-dev frei0r-plugins-dev libsoxr-dev libfdk-aac-dev libfribidi-dev librubberband-dev libiec61883-dev \
 		libfontconfig1-dev libbs2b-dev libzvbi-dev libtwolame-dev libsmbclient-dev flite1-dev \
-		nvidia-cuda-dev libnppi7.5 libnppc7.5 libcrystalhd-dev libgcrypt20-dev libsnappy-dev && \
+		nvidia-cuda-dev libcrystalhd-dev libgcrypt20-dev libsnappy-dev && \
 	apt-get -y clean && \
 	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
