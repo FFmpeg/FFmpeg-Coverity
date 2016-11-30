@@ -11,7 +11,7 @@ echo "Configuring..."
 	--enable-libmodplug --enable-libpulse --enable-libmp3lame --enable-libbluray --enable-x11grab \
 	--enable-libtheora --enable-openssl --enable-libschroedinger --enable-libcaca --enable-libopus \
 	--enable-libcdio --enable-openal --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libvo-amrwbenc --enable-libgsm \
-	--enable-vdpau --enable-vaapi --enable-iconv  --enable-libgme --enable-libwebp  --enable-libpuls \
+	--enable-vdpau --enable-vaapi --enable-iconv --enable-libgme --enable-libwebp \
 	--enable-libass --enable-frei0r --enable-libsoxr --enable-libfdk-aac --enable-avisynth --enable-libilbc \
 	--enable-libxavs --enable-fontconfig --enable-libbs2b --enable-libzvbi --enable-libtwolame --enable-libsmbclient \
 	--enable-cuda --enable-cuvid --enable-libnpp
