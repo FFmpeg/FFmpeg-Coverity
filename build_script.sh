@@ -3,7 +3,7 @@ set -e
 
 cd /root
 
-wget https://scan.coverity.com/download/linux64 --post-data "token=${DL_TOKEN}&project=FFmpeg%2FFFmpeg" -O coverity_tool.tgz
+wget https://scan.coverity.com/download/linux64 --post-data "token=${COV_TOKEN}&project=FFmpeg%2FFFmpeg" -O coverity_tool.tgz
 tar xaf coverity_tool.tgz
 rm coverity_tool.tgz
 mv cov-analysis-linux64-* cov-analysis-linux64
@@ -26,4 +26,13 @@ echo "Configuring..."
 	--enable-librubberband --enable-libsnappy --enable-libshine --enable-libssh --enable-libtesseract --enable-libv4l2 \
 	--enable-libwavpack --enable-libopenh264
 cov-build --dir cov-int make -j4 all alltools examples testprogs
-tar czvf project.tgz README cov-int
+tar czvf cov-int.tgz cov-int
+
+SCM_TAG="$(./version.sh)"
+
+curl --form token="${COV_TOKEN}" \
+	--form file=@cov-int.tgz \
+	--form email="${COV_EMAIL}" \
+	--form version="${SCM_TAG}" \
+	--form description="Automatic Coverity Scan build for ${SCM_TAG}" \
+	"https://scan.coverity.com/builds?project=FFmpeg%2FFFmpeg"

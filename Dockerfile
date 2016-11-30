@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN \
 	apt-get -y update && \
-	apt-get -y install build-essential yasm nasm pkg-config git wget cmake unzip subversion autoconf automake libtool && \
+	apt-get -y install build-essential yasm nasm pkg-config git curl wget cmake unzip subversion autoconf automake libtool && \
 	apt-get -y install --no-install-recommends \
 		libspeex-dev libvpx-dev libopenjpeg-dev libvorbis-dev libssh-dev libtesseract-dev \
 		libx264-dev libx265-dev libdc1394-22-dev libxvidcore-dev libfreetype6-dev libchromaprint-dev libleptonica-dev libavc1394-dev \
