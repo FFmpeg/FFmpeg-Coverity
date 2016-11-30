@@ -14,6 +14,8 @@ echo "Configuring..."
 	--enable-vdpau --enable-vaapi --enable-iconv --enable-libgme --enable-libwebp --enable-libopencv \
 	--enable-libass --enable-frei0r --enable-libsoxr --enable-libfdk-aac --enable-avisynth --enable-libilbc \
 	--enable-libxavs --enable-fontconfig --enable-libbs2b --enable-libzvbi --enable-libtwolame --enable-libsmbclient \
-	--enable-cuda --enable-cuvid --enable-libnpp
+	--enable-cuda --enable-cuvid --enable-libnpp --enable-libzimg --enable-libflite --enable-libiec61883 --enable-libkvazaar \
+	--enable-librubberband --enable-libsnappy --enable-libshine --enable-libssh --enable-libtesseract --enable-libv4l2 \
+	--enable-libwavpack --enable-libopenh264
 cov-build --dir cov-int make -j4 all alltools examples testprogs
 tar czvf project.tgz README cov-int
