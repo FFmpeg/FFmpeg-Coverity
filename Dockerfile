@@ -8,11 +8,11 @@ RUN \
 	apt-get -y install --no-install-recommends \
 		flite1-dev \
 		frei0r-plugins-dev \
+		ladspa-sdk \
 		libass-dev \
 		libavc1394-dev \
 		libbluray-dev \
 		libbs2b-dev \
-		libc6-dev \
 		libcaca-dev \
 		libcdio-cdda-dev \
 		libcdio-dev \
@@ -25,23 +25,29 @@ RUN \
 		libfontconfig1-dev \
 		libfreetype6-dev \
 		libfribidi-dev \
-		libgcrypt20-dev \
+		libgl1-mesa-dev \
 		libgme-dev \
+		libgnutls28-dev \
 		libgsm1-dev \
 		libiec61883-dev \
 		libleptonica-dev \
+		liblzma-dev \
 		libmodplug-dev \
 		libmp3lame-dev \
+		libnetcdf-dev \
+		libomxil-bellagio-dev \
 		libopenal-dev \
 		libopencore-amrnb-dev \
 		libopencore-amrwb-dev \
 		libopencv-dev \
-		libopenjpeg-dev \
+		libopenjp2-7-dev \
 		libopus-dev \
 		libpulse-dev \
 		librtmp-dev \
 		librubberband-dev \
 		libschroedinger-dev \
+		libsctp-dev \
+		libsdl2-dev \
 		libshine-dev \
 		libsmbclient-dev \
 		libsnappy-dev \
@@ -67,9 +73,14 @@ RUN \
 		libxcb-shape0-dev \
 		libxcb-shm0-dev \
 		libxcb-xfixes0-dev \
+		libxv-dev \
 		libxvidcore-dev \
+		libxvmc-dev \
+		libzmq3-dev \
 		libzvbi-dev \
-		nvidia-cuda-dev && \
+		nvidia-cuda-dev \
+		nvidia-opencl-dev \
+		zlib1g-dev && \
 	apt-get -y clean && \
 	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
