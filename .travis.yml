@@ -1,0 +1,8 @@
+sudo: required
+services:
+  - docker
+script:
+  - DOW="$(date "+%u")"
+  - for d in 2 4 6; do [[ "$d" == "$DOW" ]] && exit 0; done
+  - docker pull ffmpeg/coverity
+  - docker run --env COVERITY_SCAN_NOTIFICATION_EMAIL --env COVERITY_SCAN_TOKEN ffmpeg/coverity
