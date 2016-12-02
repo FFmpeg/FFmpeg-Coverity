@@ -3,7 +3,7 @@ set -e
 
 cd /root
 
-wget https://scan.coverity.com/download/linux64 --post-data "token=${COVERITY_SCAN_TOKEN}&project=FFmpeg%2FFFmpeg" -O coverity_tool.tgz
+wget -q https://scan.coverity.com/download/linux64 --post-data "token=${COVERITY_SCAN_TOKEN}&project=FFmpeg%2FFFmpeg" -O coverity_tool.tgz
 tar xaf coverity_tool.tgz
 rm coverity_tool.tgz
 mv cov-analysis-linux64-* cov-analysis-linux64
