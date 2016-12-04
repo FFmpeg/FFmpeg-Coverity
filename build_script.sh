@@ -14,17 +14,65 @@ cd ffmpeg
 
 echo "Configuring..."
 ./configure --enable-gpl --enable-nonfree --enable-version3 --enable-debug=3 --assert-level=2 --cpu=core2 \
-	--enable-libspeex --enable-libvpx --enable-libopenjpeg --enable-pthreads --enable-libvorbis \
-	--enable-libx264 --enable-libx265 --enable-libdc1394 --enable-libxvid --enable-libfreetype \
-	--enable-libmodplug --enable-libpulse --enable-libmp3lame --enable-libbluray --enable-x11grab \
-	--enable-libtheora --enable-openssl --enable-libschroedinger --enable-libcaca --enable-libopus \
-	--enable-libcdio --enable-openal --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libvo-amrwbenc --enable-libgsm \
-	--enable-vdpau --enable-vaapi --enable-iconv --enable-libgme --enable-libwebp --enable-libopencv \
-	--enable-libass --enable-frei0r --enable-libsoxr --enable-libfdk-aac --enable-avisynth --enable-libilbc \
-	--enable-libxavs --enable-fontconfig --enable-libbs2b --enable-libzvbi --enable-libtwolame --enable-libsmbclient \
-	--enable-cuda --enable-cuvid --enable-libnpp --enable-libzimg --enable-libflite --enable-libiec61883 --enable-libkvazaar \
-	--enable-librubberband --enable-libsnappy --enable-libshine --enable-libssh --enable-libtesseract --enable-libv4l2 \
-	--enable-libwavpack --enable-libopenh264
+	--enable-avisynth \
+	--enable-cuda \
+	--enable-cuvid \
+	--enable-fontconfig \
+	--enable-frei0r \
+	--enable-iconv \
+	--enable-libass \
+	--enable-libbluray \
+	--enable-libbs2b \
+	--enable-libcaca \
+	--enable-libcdio \
+	--enable-libdc1394 \
+	--enable-libfdk-aac \
+	--enable-libflite \
+	--enable-libfreetype \
+	--enable-libgme \
+	--enable-libgsm \
+	--enable-libiec61883 \
+	--enable-libilbc \
+	--enable-libkvazaar \
+	--enable-libmodplug \
+	--enable-libmp3lame \
+	--enable-libnpp \
+	--enable-libopencore-amrnb \
+	--enable-libopencore-amrwb \
+	--enable-libopencv \
+	--enable-libopenh264 \
+	--enable-libopenjpeg \
+	--enable-libopus \
+	--enable-libpulse \
+	--enable-librubberband \
+	--enable-libschroedinger \
+	--enable-libshine \
+	--enable-libsmbclient \
+	--enable-libsnappy \
+	--enable-libsoxr \
+	--enable-libspeex \
+	--enable-libssh \
+	--enable-libtesseract \
+	--enable-libtheora \
+	--enable-libtwolame \
+	--enable-libv4l2 \
+	--enable-libvo-amrwbenc \
+	--enable-libvorbis \
+	--enable-libvpx \
+	--enable-libwavpack \
+	--enable-libwebp \
+	--enable-libx264 \
+	--enable-libx265 \
+	--enable-libxavs \
+	--enable-libxvid \
+	--enable-libzimg \
+	--enable-libzvbi \
+	--enable-openal \
+	--enable-openssl \
+	--enable-pthreads \
+	--enable-vaapi \
+	--enable-vdpau \
+	--enable-x11grab
 cov-build --dir cov-int make -j4 all alltools examples testprogs
 tar czvf cov-int.tgz cov-int
 
