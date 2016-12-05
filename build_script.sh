@@ -13,37 +13,56 @@ git clone --depth=1 https://git.videolan.org/git/ffmpeg.git ffmpeg
 cd ffmpeg
 
 echo "Configuring..."
+
+# Not yet enabled:
+# 	--enable-jni \
+# 	--enable-mediacodec \
+# 	--enable-mmal \
+# 	--enable-omx-rpi \
 ./configure --enable-gpl --enable-nonfree --enable-version3 --enable-debug=3 --assert-level=2 --cpu=core2 \
 	--enable-avisynth \
+	--enable-chromaprint \
 	--enable-cuda \
 	--enable-cuvid \
+	--enable-decklink \
 	--enable-fontconfig \
 	--enable-frei0r \
+	--enable-gcrypt \
+	--enable-gmp \
+	--enable-gnutls \
+	--enable-ladspa \
 	--enable-iconv \
 	--enable-libass \
 	--enable-libbluray \
 	--enable-libbs2b \
 	--enable-libcaca \
 	--enable-libcdio \
+	--enable-libcelt \
 	--enable-libdc1394 \
 	--enable-libfdk-aac \
 	--enable-libflite \
+	--enable-libfontconfig \
 	--enable-libfreetype \
+	--enable-libfribidi \
 	--enable-libgme \
 	--enable-libgsm \
 	--enable-libiec61883 \
 	--enable-libilbc \
 	--enable-libkvazaar \
+	--enable-libmfx \
 	--enable-libmodplug \
 	--enable-libmp3lame \
 	--enable-libnpp \
+	--enable-libnut \
 	--enable-libopencore-amrnb \
 	--enable-libopencore-amrwb \
 	--enable-libopencv \
 	--enable-libopenh264 \
 	--enable-libopenjpeg \
+	--enable-libopenmpt \
 	--enable-libopus \
 	--enable-libpulse \
+	--enable-librtmp \
 	--enable-librubberband \
 	--enable-libschroedinger \
 	--enable-libshine \
@@ -56,6 +75,7 @@ echo "Configuring..."
 	--enable-libtheora \
 	--enable-libtwolame \
 	--enable-libv4l2 \
+	--enable-libvidstab \
 	--enable-libvo-amrwbenc \
 	--enable-libvorbis \
 	--enable-libvpx \
@@ -64,10 +84,19 @@ echo "Configuring..."
 	--enable-libx264 \
 	--enable-libx265 \
 	--enable-libxavs \
+	--enable-libxcb \
+	--enable-libxcb-shape \
+	--enable-libxcb-shm \
+	--enable-libxcb-xfixes \
 	--enable-libxvid \
 	--enable-libzimg \
+	--enable-libzmq \
 	--enable-libzvbi \
+	--enable-netcdf \
+	--enable-omx \
 	--enable-openal \
+	--enable-opencl \
+	--enable-opengl \
 	--enable-openssl \
 	--enable-pthreads \
 	--enable-vaapi \

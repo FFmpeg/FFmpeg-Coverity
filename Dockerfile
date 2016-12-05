@@ -26,6 +26,7 @@ RUN \
 		libfreetype6-dev \
 		libfribidi-dev \
 		libgl1-mesa-dev \
+		libgcrypt20-dev \
 		libgme-dev \
 		libgnutls28-dev \
 		libgsm1-dev \
@@ -135,6 +136,67 @@ RUN \
 	make install && \
 	cd /root && \
 	rm -rf kvazaar
+
+RUN \
+	cd /root && \
+	git clone --depth=1 git://git.xiph.org/celt.git celt && \
+	cd celt && \
+	./autogen.sh && \
+	./configure --prefix=/usr && \
+	make && \
+	make install && \
+	cd /root && \
+	rm -rf celt
+
+# libopenmpt is included in Ubuntu Zesty but not Yakkety
+RUN \
+	cd /root && \
+	svn co https://source.openmpt.org/svn/openmpt/trunk/OpenMPT/ libopenmpt && \
+	cd libopenmpt && \
+	sed -i 's/TEST=1/TEST=0/g' Makefile && \
+	make && \
+	PREFIX=/usr make install && \
+	cd /root && \
+	rm -rf libopenmpt
+
+RUN \
+	cd /root && \
+	git clone --depth=1 https://github.com/georgmartius/vid.stab.git libvidstab && \
+	cd libvidstab && \
+	cmake -DCMAKE_INSTALL_PREFIX=/usr . && \
+	make && \
+	make install && \
+	cd /root && \
+	rm -rf libvidstab
+
+RUN \
+	cd /root && \
+	git clone --depth=1 https://github.com/lu-zero/mfx_dispatch.git mfx_dispatch && \
+	cd mfx_dispatch && \
+	autoreconf -fi && \
+	./configure --prefix=/usr && \
+	make && \
+	make install && \
+	cd /root && \
+	rm -rf mfx_dispatch
+
+RUN \
+	cd /root && \
+	git clone https://git.ffmpeg.org/nut.git libnut && \
+	cd libnut/src/trunk && \
+	sed -i 's#/usr/local#/usr#g' config.mak && \
+	make && \
+	make install && \
+	cd /root && \
+	rm -rf libnut
+
+RUN \
+	cd /root && \
+	git clone --depth=1 https://github.com/kdienes/decklink-sdk.git decklink-sdk && \
+	cd decklink-sdk && \
+	cp -v Linux/include/* /usr/include/ && \
+	cd /root && \
+	rm -rf decklink-sdk
 
 ADD build_script.sh /root/build_script.sh
 
