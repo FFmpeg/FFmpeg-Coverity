@@ -14,6 +14,8 @@ cd ffmpeg
 
 echo "Configuring..."
 
+sed -i 's/-std=c11/-std=c99/g' configure
+
 # Not yet enabled:
 # 	--enable-jni \
 # 	--enable-mediacodec \
