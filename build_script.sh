@@ -102,8 +102,7 @@ sed -i 's/-std=c11/-std=c99/g' configure
 	--enable-openssl \
 	--enable-pthreads \
 	--enable-vaapi \
-	--enable-vdpau \
-	--enable-x11grab
+	--enable-vdpau
 cov-build --dir cov-int make -j4 all alltools examples testprogs
 tar czvf cov-int.tgz cov-int
 
