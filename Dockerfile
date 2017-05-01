@@ -1,4 +1,4 @@
-FROM ubuntu:17.04
+FROM ubuntu:16.10
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -42,12 +42,11 @@ RUN \
 		libopencore-amrwb-dev \
 		libopencv-dev \
 		libopenjp2-7-dev \
-		libopenmpt-dev \
 		libopus-dev \
-		liborc-0.4-dev \
 		libpulse-dev \
 		librtmp-dev \
 		librubberband-dev \
+		libschroedinger-dev \
 		libsctp-dev \
 		libsdl2-dev \
 		libshine-dev \
@@ -149,6 +148,17 @@ RUN \
 	cd /root && \
 	rm -rf celt
 
+# libopenmpt is included in Ubuntu Zesty but not Yakkety
+RUN \
+	cd /root && \
+	svn co https://source.openmpt.org/svn/openmpt/trunk/OpenMPT/ libopenmpt && \
+	cd libopenmpt && \
+	sed -i 's/TEST=1/TEST=0/g' Makefile && \
+	make && \
+	PREFIX=/usr make install && \
+	cd /root && \
+	rm -rf libopenmpt
+
 RUN \
 	cd /root && \
 	git clone --depth=1 https://github.com/georgmartius/vid.stab.git libvidstab && \
@@ -187,18 +197,6 @@ RUN \
 	cp -v Linux/include/* /usr/include/ && \
 	cd /root && \
 	rm -rf decklink-sdk
-
-RUN \
-	cd /root && \
-	wget http://archive.ubuntu.com/ubuntu/pool/universe/s/schroedinger/schroedinger_1.0.11.orig.tar.gz && \
-	tar -xf schroedinger_1.0.11.orig.tar.gz && \
-	cd schroedinger-1.0.11 && \
-	autoreconf -fi && \
-	./configure --prefix=/usr && \
-	make && \
-	make install && \
-	cd /root && \
-	rm -rf schroedinger-1.0.11 schroedinger_1.0.11.orig.tar.gz
 
 ADD build_script.sh /root/build_script.sh
 
