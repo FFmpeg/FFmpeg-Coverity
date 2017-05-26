@@ -108,7 +108,7 @@ tar czvf cov-int.tgz cov-int
 
 [ -n "$COVERITY_DRY_RUN" ] && exit 0
 
-SCM_TAG="$(./version.sh)"
+SCM_TAG="$(./ffbuild/version.sh)"
 
 curl --form token="${COVERITY_SCAN_TOKEN}" \
 	--form file=@cov-int.tgz \
