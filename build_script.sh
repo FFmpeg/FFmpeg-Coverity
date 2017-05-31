@@ -55,7 +55,6 @@ sed -i 's/-std=c11/-std=c99/g' configure
 	--enable-libmodplug \
 	--enable-libmp3lame \
 	--enable-libnpp \
-	--enable-libnut \
 	--enable-libopencore-amrnb \
 	--enable-libopencore-amrwb \
 	--enable-libopencv \
@@ -66,7 +65,6 @@ sed -i 's/-std=c11/-std=c99/g' configure
 	--enable-libpulse \
 	--enable-librtmp \
 	--enable-librubberband \
-	--enable-libschroedinger \
 	--enable-libshine \
 	--enable-libsmbclient \
 	--enable-libsnappy \

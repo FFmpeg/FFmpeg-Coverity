@@ -46,7 +46,6 @@ RUN \
 		libpulse-dev \
 		librtmp-dev \
 		librubberband-dev \
-		libschroedinger-dev \
 		libsctp-dev \
 		libsdl2-dev \
 		libshine-dev \
@@ -179,16 +178,6 @@ RUN \
 	make install && \
 	cd /root && \
 	rm -rf mfx_dispatch
-
-RUN \
-	cd /root && \
-	git clone https://git.ffmpeg.org/nut.git libnut && \
-	cd libnut/src/trunk && \
-	sed -i 's#/usr/local#/usr#g' config.mak && \
-	make && \
-	make install && \
-	cd /root && \
-	rm -rf libnut
 
 RUN \
 	cd /root && \
