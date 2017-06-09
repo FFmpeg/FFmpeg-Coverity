@@ -190,7 +190,7 @@ RUN \
 	cd /root && \
 	git clone --depth=1 https://github.com/hoene/libmysofa.git libmysofa && \
 	cd libmysofa && \
-	mkdir build && cd build && \
+	mkdir mybuild && cd mybuild && \
 	cmake -DCMAKE_INSTALL_PREFIX=/usr .. && \
 	make && \
 	make install && \
