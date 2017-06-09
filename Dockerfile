@@ -35,7 +35,6 @@ RUN \
 		liblzma-dev \
 		libmodplug-dev \
 		libmp3lame-dev \
-		libnetcdf-dev \
 		libomxil-bellagio-dev \
 		libopenal-dev \
 		libopencore-amrnb-dev \
@@ -186,6 +185,17 @@ RUN \
 	cp -v Linux/include/* /usr/include/ && \
 	cd /root && \
 	rm -rf decklink-sdk
+
+RUN \
+	cd /root && \
+	git clone --depth=1 https://github.com/hoene/libmysofa.git libmysofa && \
+	cd libmysofa && \
+	mkdir build && cd build && \
+	cmake -DCMAKE_INSTALL_PREFIX=/usr .. && \
+	make && \
+	make install && \
+	cd /root && \
+	rm -rf libmysofa
 
 ADD build_script.sh /root/build_script.sh
 

@@ -92,7 +92,7 @@ sed -i 's/-std=c11/-std=c99/g' configure
 	--enable-libzimg \
 	--enable-libzmq \
 	--enable-libzvbi \
-	--enable-netcdf \
+	--enable-libmysofa \
 	--enable-omx \
 	--enable-openal \
 	--enable-opencl \
