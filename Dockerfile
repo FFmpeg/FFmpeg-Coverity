@@ -191,7 +191,8 @@ RUN \
 	git clone --depth=1 https://github.com/hoene/libmysofa.git libmysofa && \
 	cd libmysofa && \
 	mkdir -p build && cd build && \
-	cmake -DCMAKE_INSTALL_PREFIX=/usr .. && \
+	cmake -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_TESTS=Off .. && \
+	make mysofa-static && \
 	make && \
 	make install && \
 	cd /root && \
