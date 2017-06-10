@@ -20,6 +20,7 @@ echo "Configuring..."
 # 	--enable-mmal \
 # 	--enable-omx-rpi \
 ./configure --enable-gpl --enable-nonfree --enable-version3 --enable-debug=3 --assert-level=2 --cpu=core2 \
+	--disable-stripping --disable-doc \
 	--enable-avisynth \
 	--enable-chromaprint \
 	--enable-cuda \
@@ -99,6 +100,10 @@ echo "Configuring..."
 	--enable-pthreads \
 	--enable-vaapi \
 	--enable-vdpau
+
+# Skip linking, it's slow and not needed.
+sed -i 's|^LD=.*|LD=/root/fake_ld.sh|' ./ffbuild/config.mak
+
 cov-build --dir cov-int make -j4 all alltools examples testprogs
 tar czvf cov-int.tgz cov-int
 

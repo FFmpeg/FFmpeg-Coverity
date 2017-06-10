@@ -200,5 +200,6 @@ RUN \
 	rm -rf libmysofa
 
 ADD build_script.sh /root/build_script.sh
+ADD fake_ld.sh /root/fake_ld.sh
 
 CMD ["/root/build_script.sh"]
