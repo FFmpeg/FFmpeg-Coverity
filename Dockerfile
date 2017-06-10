@@ -1,8 +1,9 @@
-FROM ubuntu:16.10
+FROM debian:stretch
 
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN \
+	sed -i 's/main/main contrib non-free/' /etc/apt/sources.list && \
 	apt-get -y update && \
 	apt-get -y install build-essential yasm nasm pkg-config git curl wget cmake unzip subversion autoconf automake libtool && \
 	apt-get -y install --no-install-recommends \
@@ -53,7 +54,7 @@ RUN \
 		libsoxr-dev \
 		libspeex-dev \
 		libssh-dev \
-		libssl-dev \
+		libssl1.0-dev \
 		libtesseract-dev \
 		libtheora-dev \
 		libtwolame-dev \
