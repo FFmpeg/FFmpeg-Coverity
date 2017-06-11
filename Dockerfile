@@ -42,6 +42,7 @@ RUN \
 		libopencore-amrwb-dev \
 		libopencv-dev \
 		libopenjp2-7-dev \
+		libopenmpt-dev \
 		libopus-dev \
 		libpulse-dev \
 		librtmp-dev \
@@ -146,17 +147,6 @@ RUN \
 	make install && \
 	cd /root && \
 	rm -rf celt
-
-# libopenmpt is included in Ubuntu Zesty but not Yakkety
-RUN \
-	cd /root && \
-	svn co https://source.openmpt.org/svn/openmpt/trunk/OpenMPT/ libopenmpt && \
-	cd libopenmpt && \
-	sed -i 's/TEST=1/TEST=0/g' Makefile && \
-	make && \
-	PREFIX=/usr make install && \
-	cd /root && \
-	rm -rf libopenmpt
 
 RUN \
 	cd /root && \
