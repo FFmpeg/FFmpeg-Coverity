@@ -24,6 +24,7 @@ echo "Configuring..."
 	--enable-avisynth \
 	--enable-chromaprint \
 	--enable-cuda \
+	--enable-cuda-sdk --nvccflags="-ccbin clang-3.8 -gencode arch=compute_30,code=sm_30 -O2" \
 	--enable-cuvid \
 	--enable-decklink \
 	--enable-fontconfig \

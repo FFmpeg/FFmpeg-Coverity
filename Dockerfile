@@ -80,6 +80,7 @@ RUN \
 		libzmq3-dev \
 		libzvbi-dev \
 		nvidia-cuda-dev \
+		nvidia-cuda-toolkit \
 		nvidia-opencl-dev \
 		zlib1g-dev && \
 	apt-get -y clean && \
