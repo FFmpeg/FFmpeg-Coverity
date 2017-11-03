@@ -19,6 +19,8 @@ echo "Configuring..."
 # 	--enable-mediacodec \
 # 	--enable-mmal \
 # 	--enable-omx-rpi \
+# Cannot be enabled at the same time as openssl:
+#	--enable-gnutls \
 ./configure --enable-gpl --enable-nonfree --enable-version3 --enable-debug=3 --assert-level=2 --cpu=core2 \
 	--disable-stripping --disable-doc \
 	--enable-avisynth \
@@ -31,7 +33,6 @@ echo "Configuring..."
 	--enable-frei0r \
 	--enable-gcrypt \
 	--enable-gmp \
-	--enable-gnutls \
 	--enable-ladspa \
 	--enable-iconv \
 	--enable-libass \
