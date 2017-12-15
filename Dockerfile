@@ -190,6 +190,14 @@ RUN \
 	cd /root && \
 	rm -rf libmysofa
 
+RUN \
+	cd /root && \
+	git clone --depth=1 https://git.videolan.org/git/ffmpeg/nv-codec-headers.git nv-codec-headers && \
+	cd nv-codec-headers && \
+	make install PREFIX=/usr && \
+	cd /root && \
+	rm -rf nv-codec-headers
+
 ADD build_script.sh /root/build_script.sh
 ADD fake_ld.sh /root/fake_ld.sh
 
