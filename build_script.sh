@@ -84,7 +84,7 @@ echo "Configuring..."
 	--enable-libwebp \
 	--enable-libx264 \
 	--enable-libx265 \
-#	--enable-libxavs \
+	--enable-libxavs \
 	--enable-libxcb \
 	--enable-libxcb-shape \
 	--enable-libxcb-shm \

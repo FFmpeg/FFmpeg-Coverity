@@ -97,15 +97,15 @@ RUN \
 	cd /root && \
 	rm -rf libilbc
 
-#RUN \
-#	cd /root && \
-#	svn co https://svn.code.sf.net/p/xavs/code/trunk xavs && \
-#	cd xavs && \
-#	./configure --prefix=/usr && \
-#	make && \
-#	make install && \
-#	cd /root && \
-#	rm -rf xavs
+RUN \
+	cd /root && \
+	svn co https://svn.code.sf.net/p/xavs/code/trunk xavs && \
+	cd xavs && \
+	./configure --prefix=/usr && \
+	make && \
+	make install && \
+	cd /root && \
+	rm -rf xavs
 
 RUN \
 	cd /root && \
