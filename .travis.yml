@@ -6,4 +6,4 @@ script:
   - DOW="$(date "+%u")"
   - test "$TRAVIS_EVENT_TYPE" = "cron" && for d in 2 4 6; do [[ "$d" == "$DOW" ]] && exit 0 || true; done
   - docker pull ffmpeg/coverity
-  - docker run --env COVERITY_SCAN_NOTIFICATION_EMAIL --env COVERITY_SCAN_TOKEN --env COVERITY_DRY_RUN ffmpeg/coverity
+  - docker run -t -i --env COVERITY_SCAN_NOTIFICATION_EMAIL --env COVERITY_SCAN_TOKEN --env COVERITY_DRY_RUN ffmpeg/coverity
