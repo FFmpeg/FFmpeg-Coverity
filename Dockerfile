@@ -172,7 +172,7 @@ RUN \
 
 RUN \
 	cd /root && \
-	git clone --depth=1 https://github.com/kdienes/decklink-sdk.git decklink-sdk && \
+	git clone --depth=1 https://github.com/BtbN/decklink-sdk.git decklink-sdk && \
 	cd decklink-sdk && \
 	cp -v Linux/include/* /usr/include/ && \
 	cd /root && \
