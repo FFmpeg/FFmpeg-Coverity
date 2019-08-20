@@ -25,10 +25,10 @@ echo "Configuring..."
 	--disable-stripping --disable-doc \
 	--enable-avisynth \
 	--enable-chromaprint \
-	--enable-cuda \
-	--enable-cuda-sdk --nvccflags="-ccbin clang-3.8 -gencode arch=compute_30,code=sm_30 -O2" \
+	--enable-cuda-llvm \
 	--enable-cuvid \
 	--enable-decklink \
+	--enable-ffnvcodec \
 	--enable-fontconfig \
 	--enable-frei0r \
 	--enable-gcrypt \
@@ -55,7 +55,6 @@ echo "Configuring..."
 	--enable-libmfx \
 	--enable-libmodplug \
 	--enable-libmp3lame \
-	--enable-libnpp \
 	--enable-libopencore-amrnb \
 	--enable-libopencore-amrwb \
 	--enable-libopencv \
