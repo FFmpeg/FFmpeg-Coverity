@@ -1,14 +1,13 @@
-FROM debian:stretch
+FROM debian:buster
 
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN \
 	sed -i 's/main/main contrib non-free/' /etc/apt/sources.list && \
-	echo "deb http://ftp.debian.org/debian stretch-backports main contrib non-free" >> /etc/apt/sources.list && \
 	apt-get -y update && \
 	apt-get -y install build-essential yasm nasm pkg-config git curl wget cmake unzip subversion autoconf automake libtool && \
 	apt-get -y install --no-install-recommends \
-		clang-3.8 \
+		clang \
 		flite1-dev \
 		frei0r-plugins-dev \
 		ladspa-sdk \
@@ -57,7 +56,7 @@ RUN \
 		libsoxr-dev \
 		libspeex-dev \
 		libssh-dev \
-		libssl1.0-dev \
+		libssl-dev \
 		libtesseract-dev \
 		libtheora-dev \
 		libtwolame-dev \
@@ -81,11 +80,8 @@ RUN \
 		libxvmc-dev \
 		libzmq3-dev \
 		libzvbi-dev \
+		ocl-icd-opencl-dev \
 		zlib1g-dev && \
-	apt-get -y -t stretch-backports install --no-install-recommends \
-		nvidia-cuda-dev \
-		nvidia-cuda-toolkit \
-		nvidia-opencl-dev && \
 	apt-get -y clean && \
 	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 

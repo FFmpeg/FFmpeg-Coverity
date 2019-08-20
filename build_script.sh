@@ -21,6 +21,10 @@ echo "Configuring..."
 # 	--enable-omx-rpi \
 # Cannot be enabled at the same time as openssl:
 #	--enable-gnutls \
+# Library in Debian too new for ffmpeg:
+#	--enable-libopencv \
+# https://lists.samba.org/archive/samba-technical/2018-October/130668.html
+#	--enable-libsmbclient \
 ./configure --enable-gpl --enable-nonfree --enable-version3 --enable-debug=3 --assert-level=2 --cpu=core2 \
 	--disable-stripping --disable-doc \
 	--enable-avisynth \
@@ -57,7 +61,6 @@ echo "Configuring..."
 	--enable-libmp3lame \
 	--enable-libopencore-amrnb \
 	--enable-libopencore-amrwb \
-	--enable-libopencv \
 	--enable-libopenh264 \
 	--enable-libopenjpeg \
 	--enable-libopenmpt \
@@ -66,7 +69,6 @@ echo "Configuring..."
 	--enable-librtmp \
 	--enable-librubberband \
 	--enable-libshine \
-	--enable-libsmbclient \
 	--enable-libsnappy \
 	--enable-libsoxr \
 	--enable-libspeex \
