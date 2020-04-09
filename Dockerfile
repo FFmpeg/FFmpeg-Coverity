@@ -197,6 +197,16 @@ RUN \
 	cd /root && \
 	rm -rf nv-codec-headers
 
+RUN \
+	cd /root && \
+	git clone --depth=1 https://github.com/AviSynth/AviSynthPlus.git avisynth && \
+	cd avisynth && \
+	mkdir avisynth-build && cd avisynth-build && \
+	cmake -DHEADERS_ONLY:bool=on -DCMAKE_INSTALL_PREFIX=/usr .. && \
+	make install && \
+	cd /root && \
+	rm -rf avisynth
+
 ADD build_script.sh /root/build_script.sh
 ADD fake_ld.sh /root/fake_ld.sh
 
