@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM ubuntu:20.04
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -61,6 +61,7 @@ RUN \
 		libtheora-dev \
 		libtwolame-dev \
 		libv4l-dev \
+		libdrm-dev \
 		libva-dev \
 		libvdpau-dev \
 		libvo-amrwbenc-dev \
