@@ -25,6 +25,7 @@ echo "Configuring..."
 #	--enable-libopencv \
 # https://lists.samba.org/archive/samba-technical/2018-October/130668.html
 #	--enable-libsmbclient \
+
 ./configure --enable-gpl --enable-nonfree --enable-version3 --enable-debug=3 --assert-level=2 --cpu=core2 \
 	--disable-stripping --disable-doc \
 	--enable-avisynth \
@@ -110,7 +111,12 @@ sed -i 's|^LD=.*|LD=/root/fake_ld.sh|' ./ffbuild/config.mak
 cov-build --dir cov-int make -j4 all alltools examples testprogs
 tar czvf cov-int.tgz cov-int
 
-[[ $COVERITY_DRY_RUN == true ]] && exit 0
+if [[ $COVERITY_DRY_RUN == true ]]; then
+    echo "Dryrunning, skipping coverity upload."
+    exit
+fi
+
+echo "Uploading results to coverity..."
 
 SCM_TAG="$(./ffbuild/version.sh)"
 

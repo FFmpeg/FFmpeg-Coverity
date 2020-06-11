@@ -140,7 +140,7 @@ RUN \
 
 RUN \
 	cd /root && \
-	git clone --depth=1 git://git.xiph.org/celt.git celt && \
+	git clone --depth=1 https://gitlab.xiph.org/xiph/celt.git celt && \
 	cd celt && \
 	./autogen.sh && \
 	./configure --prefix=/usr && \
