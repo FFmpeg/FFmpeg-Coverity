@@ -110,7 +110,7 @@ sed -i 's|^LD=.*|LD=/root/fake_ld.sh|' ./ffbuild/config.mak
 cov-build --dir cov-int make -j4 all alltools examples testprogs
 tar czvf cov-int.tgz cov-int
 
-[ -n "$COVERITY_DRY_RUN" ] && exit 0
+[[ $COVERITY_DRY_RUN == true ]] && exit 0
 
 SCM_TAG="$(./ffbuild/version.sh)"
 

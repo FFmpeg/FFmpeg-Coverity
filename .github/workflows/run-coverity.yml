@@ -1,0 +1,23 @@
+name: Coverity
+
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: '0 16 * * 2,4,6'
+
+jobs:
+  coverity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build Image
+        run: docker build -t coverity-img .
+      - name: Run Coverity
+        run: docker run --rm -ti --env COVERITY_SCAN_NOTIFICATION_EMAIL --env COVERITY_SCAN_TOKEN --env COVERITY_DRY_RUN coverity-img
+        env:
+          COVERITY_SCAN_NOTIFICATION_EMAIL: ${{ secrets.COVERITY_SCAN_NOTIFICATION_EMAIL }}
+          COVERITY_SCAN_TOKEN: ${{ secrets.COVERITY_SCAN_TOKEN }}
+          COVERITY_DRY_RUN: ${{ github.event_name != 'schedule' }}
