@@ -35,8 +35,10 @@ RUN \
 		libiec61883-dev \
 		libleptonica-dev \
 		liblzma-dev \
+		libmfx-dev \
 		libmodplug-dev \
 		libmp3lame-dev \
+		libmysofa-dev \
 		libomxil-bellagio-dev \
 		libopenal-dev \
 		libopencore-amrnb-dev \
@@ -161,34 +163,11 @@ RUN \
 
 RUN \
 	cd /root && \
-	git clone --depth=1 https://github.com/lu-zero/mfx_dispatch.git mfx_dispatch && \
-	cd mfx_dispatch && \
-	autoreconf -fi && \
-	./configure --prefix=/usr && \
-	make -j"$(nproc)" && \
-	make install && \
-	cd /root && \
-	rm -rf mfx_dispatch
-
-RUN \
-	cd /root && \
 	git clone --depth=1 https://github.com/BtbN/decklink-sdk.git decklink-sdk && \
 	cd decklink-sdk && \
 	cp -v Linux/include/* /usr/include/ && \
 	cd /root && \
 	rm -rf decklink-sdk
-
-RUN \
-	cd /root && \
-	git clone --depth=1 https://github.com/hoene/libmysofa.git libmysofa && \
-	cd libmysofa && \
-	mkdir -p build && cd build && \
-	cmake -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_TESTS=Off .. && \
-	make -j"$(nproc)" mysofa-static && \
-	make -j"$(nproc)" && \
-	make install && \
-	cd /root && \
-	rm -rf libmysofa
 
 RUN \
 	cd /root && \
