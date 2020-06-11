@@ -162,14 +162,14 @@ RUN \
 
 RUN \
 	cd /root && \
-	git clone --depth=1 https://github.com/Intel-Media-SDK/MediaSDK msdk && \
-	cd msdk && \
-	mkdir build && cd build && \
-	cmake -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_SAMPLES=OFF .. && \
+	git clone --depth=1 https://github.com/lu-zero/mfx_dispatch.git mfx_dispatch && \
+	cd mfx_dispatch && \
+	autoreconf -fi && \
+	./configure --prefix=/usr && \
 	make -j"$(nproc)" && \
 	make install && \
 	cd /root && \
-	rm -rf msdk
+	rm -rf mfx_dispatch
 
 RUN \
 	cd /root && \
