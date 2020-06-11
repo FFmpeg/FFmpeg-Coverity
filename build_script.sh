@@ -108,7 +108,7 @@ echo "Configuring..."
 # Skip linking, it's slow and not needed.
 sed -i 's|^LD=.*|LD=/root/fake_ld.sh|' ./ffbuild/config.mak
 
-cov-build --dir cov-int make -j4 all alltools examples testprogs
+cov-build --dir cov-int make -j"$(nproc)" all alltools examples testprogs
 tar czvf cov-int.tgz cov-int
 
 if [[ $COVERITY_DRY_RUN == true ]]; then

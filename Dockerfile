@@ -8,6 +8,7 @@ RUN \
 	apt-get -y install build-essential yasm nasm pkg-config git curl wget cmake unzip subversion autoconf automake libtool && \
 	apt-get -y install --no-install-recommends \
 		clang \
+		nproc \
 		flite1-dev \
 		frei0r-plugins-dev \
 		ladspa-sdk \
@@ -92,7 +93,7 @@ RUN \
 	cd libilbc && \
 	mkdir build && cd build && \
 	cmake -DCMAKE_INSTALL_PREFIX=/usr .. && \
-	make && \
+	make -j"$(nproc)" && \
 	make install && \
 	cd /root && \
 	rm -rf libilbc
@@ -102,7 +103,7 @@ RUN \
 	svn co https://svn.code.sf.net/p/xavs/code/trunk xavs && \
 	cd xavs && \
 	./configure --prefix=/usr && \
-	make && \
+	make -j"$(nproc)" && \
 	make install && \
 	cd /root && \
 	rm -rf xavs
@@ -113,7 +114,7 @@ RUN \
 	cd zimg && \
 	./autogen.sh && \
 	./configure --prefix=/usr && \
-	make && \
+	make -j"$(nproc)" && \
 	make install && \
 	cd /root && \
 	rm -rf zimg
@@ -122,7 +123,7 @@ RUN \
 	cd /root && \
 	git clone --depth=1 https://github.com/cisco/openh264.git openh264 && \
 	cd openh264 && \
-	make PREFIX=/usr && \
+	make -j"$(nproc)" PREFIX=/usr && \
 	make install PREFIX=/usr && \
 	cd /root && \
 	rm -rf openh264
@@ -133,7 +134,7 @@ RUN \
 	cd kvazaar && \
 	./autogen.sh && \
 	./configure --prefix=/usr && \
-	make && \
+	make -j"$(nproc)" && \
 	make install && \
 	cd /root && \
 	rm -rf kvazaar
@@ -144,7 +145,7 @@ RUN \
 	cd celt && \
 	./autogen.sh && \
 	./configure --prefix=/usr && \
-	make && \
+	make -j"$(nproc)" && \
 	make install && \
 	cd /root && \
 	rm -rf celt
@@ -154,7 +155,7 @@ RUN \
 	git clone --depth=1 https://github.com/georgmartius/vid.stab.git libvidstab && \
 	cd libvidstab && \
 	cmake -DCMAKE_INSTALL_PREFIX=/usr . && \
-	make && \
+	make -j"$(nproc)" && \
 	make install && \
 	cd /root && \
 	rm -rf libvidstab
@@ -165,7 +166,7 @@ RUN \
 	cd msdk && \
 	mkdir build && cd build && \
 	cmake -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_SAMPLES=OFF .. && \
-	make && \
+	make -j"$(nproc)" && \
 	make install && \
 	cd /root && \
 	rm -rf msdk
@@ -184,8 +185,8 @@ RUN \
 	cd libmysofa && \
 	mkdir -p build && cd build && \
 	cmake -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_TESTS=Off .. && \
-	make mysofa-static && \
-	make && \
+	make -j"$(nproc)" mysofa-static && \
+	make -j"$(nproc)" && \
 	make install && \
 	cd /root && \
 	rm -rf libmysofa
