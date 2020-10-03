@@ -69,7 +69,6 @@ RUN \
 		libvo-amrwbenc-dev \
 		libvorbis-dev \
 		libvpx-dev \
-		libwavpack-dev \
 		libwebp-dev \
 		libx11-dev \
 		libx11-xcb-dev \

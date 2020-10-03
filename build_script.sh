@@ -82,7 +82,6 @@ echo "Configuring..."
 	--enable-libvo-amrwbenc \
 	--enable-libvorbis \
 	--enable-libvpx \
-	--enable-libwavpack \
 	--enable-libwebp \
 	--enable-libx264 \
 	--enable-libx265 \
