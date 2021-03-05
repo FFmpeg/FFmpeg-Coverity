@@ -89,7 +89,7 @@ RUN \
 
 RUN \
 	cd /root && \
-	git clone --depth=1 https://github.com/TimothyGu/libilbc.git libilbc && \
+	git clone --depth=1 --recurse-submodules https://github.com/TimothyGu/libilbc.git libilbc && \
 	cd libilbc && \
 	mkdir build && cd build && \
 	cmake -DCMAKE_INSTALL_PREFIX=/usr .. && \
