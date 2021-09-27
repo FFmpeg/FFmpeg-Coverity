@@ -1,5 +1,5 @@
 # FFmpeg-Coverity
-Dockerfile for an ffmpeg coverity testing environment.
+Dockerfile for an ffmpeg coverity testing environment
 
 Usage:
 
