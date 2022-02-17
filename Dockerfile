@@ -182,7 +182,7 @@ RUN \
 	cd avisynth && \
 	mkdir avisynth-build && cd avisynth-build && \
 	cmake -DHEADERS_ONLY:bool=on -DCMAKE_INSTALL_PREFIX=/usr .. && \
-	make install && \
+	make VersionGen install && \
 	cd /root && \
 	rm -rf avisynth
 
