@@ -123,8 +123,8 @@ RUN \
 	cd /root && \
 	git clone --depth=1 https://github.com/cisco/openh264.git openh264 && \
 	cd openh264 && \
-	make -j"$(nproc)" PREFIX=/usr && \
-	make install PREFIX=/usr && \
+	make -j"$(nproc)" PREFIX=/usr INCLUDE_PREFIX=/usr/include/wels && \
+	make install PREFIX=/usr INCLUDE_PREFIX=/usr/include/wels && \
 	cd /root && \
 	rm -rf openh264
 
