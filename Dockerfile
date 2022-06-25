@@ -110,7 +110,7 @@ RUN \
 
 RUN \
 	cd /root && \
-	git clone --depth=1 https://github.com/sekrit-twc/zimg.git zimg && \
+	git clone --recurse-submodules --depth=1 https://github.com/sekrit-twc/zimg.git zimg && \
 	cd zimg && \
 	./autogen.sh && \
 	./configure --prefix=/usr && \
