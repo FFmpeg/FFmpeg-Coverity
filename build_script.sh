@@ -90,6 +90,7 @@ echo "Configuring..."
 	--enable-libxcb-shape \
 	--enable-libxcb-shm \
 	--enable-libxcb-xfixes \
+	--enable-libxml2 \
 	--enable-libxvid \
 	--enable-libzimg \
 	--enable-libzmq \

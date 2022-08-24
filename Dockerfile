@@ -77,6 +77,7 @@ RUN \
 		libxcb-shape0-dev \
 		libxcb-shm0-dev \
 		libxcb-xfixes0-dev \
+		libxml2-dev \
 		libxv-dev \
 		libxvidcore-dev \
 		libxvmc-dev \
