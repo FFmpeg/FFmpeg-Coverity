@@ -7,7 +7,7 @@ RUN \
 	apt-get -y update && \
 	apt-get -y install build-essential yasm nasm pkg-config git curl wget cmake unzip subversion autoconf automake libtool && \
 	apt-get -y install --no-install-recommends \
-		clang \
+		clang-12 \
 		flite1-dev \
 		frei0r-plugins-dev \
 		ladspa-sdk \

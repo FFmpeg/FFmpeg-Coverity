@@ -31,6 +31,7 @@ echo "Configuring..."
 	--enable-avisynth \
 	--enable-chromaprint \
 	--enable-cuda-llvm \
+	--nvcc=clang-12 \
 	--enable-cuvid \
 	--enable-decklink \
 	--enable-ffnvcodec \
