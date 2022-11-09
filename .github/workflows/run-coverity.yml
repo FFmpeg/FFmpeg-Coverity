@@ -16,7 +16,10 @@ jobs:
       - name: Build Image
         run: docker build -t coverity-img .
       - name: Run Coverity
-        run: docker run --rm --env COVERITY_SCAN_NOTIFICATION_EMAIL --env COVERITY_SCAN_TOKEN --env COVERITY_DRY_RUN coverity-img
+        run: |
+          set -e
+          docker run --name cov-worker --env COVERITY_SCAN_NOTIFICATION_EMAIL --env COVERITY_SCAN_TOKEN --env COVERITY_DRY_RUN coverity-img
+          docker cp cov-worker:/root/ffmpeg/cov-int.tgz cov-int.tgz
         env:
           COVERITY_SCAN_NOTIFICATION_EMAIL: ${{ secrets.COVERITY_SCAN_NOTIFICATION_EMAIL }}
           COVERITY_SCAN_TOKEN: ${{ secrets.COVERITY_SCAN_TOKEN }}
@@ -25,4 +28,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: cov-int
-          path: /root/cov-int.tgz
+          path: cov-int.tgz
