@@ -179,7 +179,7 @@ RUN \
 
 RUN \
 	cd /root && \
-	git clone --depth=1 https://github.com/AviSynth/AviSynthPlus.git avisynth && \
+	git clone --filter=blob:none https://github.com/AviSynth/AviSynthPlus.git avisynth && \
 	cd avisynth && \
 	mkdir avisynth-build && cd avisynth-build && \
 	cmake -DHEADERS_ONLY:bool=on -DCMAKE_INSTALL_PREFIX=/usr .. && \
