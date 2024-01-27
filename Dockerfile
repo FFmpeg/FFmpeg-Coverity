@@ -1,12 +1,12 @@
 FROM ubuntu:24.04
 
-ENV DEBIAN_FRONTEND noninteractive
-
 RUN \
+    export DEBIAN_FRONTEND=noninteractive && \
 	apt-get -y update && \
+    apt-get -y full-upgrade && \
 	apt-get -y install build-essential yasm nasm pkg-config git curl wget cmake unzip subversion autoconf automake libtool && \
 	apt-get -y install --no-install-recommends \
-		clang-17 \
+		clang \
 		flite1-dev \
 		frei0r-plugins-dev \
 		ladspa-sdk \
