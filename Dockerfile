@@ -1,13 +1,12 @@
-FROM ubuntu:20.04
+FROM ubuntu:24.04
 
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN \
-	sed -i 's/main/main contrib non-free/' /etc/apt/sources.list && \
 	apt-get -y update && \
 	apt-get -y install build-essential yasm nasm pkg-config git curl wget cmake unzip subversion autoconf automake libtool && \
 	apt-get -y install --no-install-recommends \
-		clang-12 \
+		clang-17 \
 		flite1-dev \
 		frei0r-plugins-dev \
 		ladspa-sdk \
@@ -21,8 +20,7 @@ RUN \
 		libcdio-paranoia-dev \
 		libcdparanoia-dev \
 		libchromaprint-dev \
-		libcrystalhd-dev \
-		libdc1394-22-dev \
+		libdc1394-dev \
 		libfdk-aac-dev \
 		libfontconfig1-dev \
 		libfreetype6-dev \
@@ -92,6 +90,7 @@ RUN \
 	cd /root && \
 	git clone --depth=1 --recurse-submodules https://github.com/TimothyGu/libilbc.git libilbc && \
 	cd libilbc && \
+	sed -i 's/ABSL_MUST_USE_RESULT//g' modules/audio_coding/codecs/ilbc/decode.h && \
 	mkdir build && cd build && \
 	cmake -DCMAKE_INSTALL_PREFIX=/usr .. && \
 	make -j"$(nproc)" && \
