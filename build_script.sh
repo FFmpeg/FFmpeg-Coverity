@@ -56,7 +56,7 @@ LINUX_OPTIONS=(
 	--enable-libiec61883
 	--enable-libilbc
 	--enable-libkvazaar
-	--enable-libmfx
+	--enable-libvpl
 	--enable-libmodplug
 	--enable-libmp3lame
 	--enable-libopencore-amrnb

@@ -35,7 +35,7 @@ RUN \
         libiec61883-dev \
         libleptonica-dev \
         liblzma-dev \
-        libmfx-dev \
+        libvpl-dev \
         libmodplug-dev \
         libmp3lame-dev \
         libmysofa-dev \
