@@ -13,8 +13,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Set up Buildx
+        uses: docker/setup-buildx-action@v3
       - name: Build Image
-        run: docker build -t coverity-img .
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          tags: coverity-img:latest
+          load: true
+          pull: true
+          cache-to: type=gha,mode=max
+          cache-from: type=gha
       - name: Run Coverity
         run: |
           set -e
