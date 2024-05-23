@@ -6,6 +6,8 @@ RUN \
     apt-get -y full-upgrade && \
     apt-get -y install build-essential yasm nasm pkg-config git curl wget cmake unzip subversion autoconf automake libtool && \
     apt-get -y install --no-install-recommends \
+        mingw-w64 \
+        mingw-w64-tools \
         clang \
         flite1-dev \
         frei0r-plugins-dev \
@@ -173,6 +175,7 @@ RUN \
     git clone --depth=1 https://git.videolan.org/git/ffmpeg/nv-codec-headers.git nv-codec-headers && \
     cd nv-codec-headers && \
     make install PREFIX=/usr && \
+    make install PREFIX=/usr/x86_64-w64-mingw32 && \
     cd /root && \
     rm -rf nv-codec-headers
 
