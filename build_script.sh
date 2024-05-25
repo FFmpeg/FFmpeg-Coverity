@@ -142,7 +142,7 @@ fi
 
 echo "Uploading results to coverity..."
 
-SCM_TAG="$(./ffbuild/version.sh)"
+SCM_TAG="$(cd ffmpeg && ./ffbuild/version.sh)"
 
 curl --form token="${COVERITY_SCAN_TOKEN}" \
 	--form file=@cov-int.tgz \
