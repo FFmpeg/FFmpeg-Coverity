@@ -48,15 +48,18 @@ RUN \
         libopenmpt-dev \
         libopus-dev \
         libpulse-dev \
+        libplacebo-dev \
         librtmp-dev \
         librubberband-dev \
         libsctp-dev \
         libsdl2-dev \
+        libshaderc-dev \
         libshine-dev \
         libsmbclient-dev \
         libsnappy-dev \
         libsoxr-dev \
         libspeex-dev \
+        libspirv-cross-c-shared-dev \
         libssh-dev \
         libssl-dev \
         libtesseract-dev \
@@ -69,6 +72,7 @@ RUN \
         libvo-amrwbenc-dev \
         libvorbis-dev \
         libvpx-dev \
+        libvulkan-dev \
         libwebp-dev \
         libx11-dev \
         libx11-xcb-dev \
@@ -84,6 +88,8 @@ RUN \
         libzmq3-dev \
         libzvbi-dev \
         ocl-icd-opencl-dev \
+        spirv-cross \
+        spirv-headers \
         zlib1g-dev && \
     apt-get -y clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
