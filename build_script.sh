@@ -25,6 +25,8 @@ cd ffmpeg
 #	--enable-libopencv \
 # https://lists.samba.org/archive/samba-technical/2018-October/130668.html
 #	--enable-libsmbclient \
+# Disabled due to broken server:
+#   --enable-libcelt
 LINUX_OPTIONS=(
     --cpu=core2
 	--enable-avisynth
@@ -44,7 +46,6 @@ LINUX_OPTIONS=(
 	--enable-libbs2b
 	--enable-libcaca
 	--enable-libcdio
-	--enable-libcelt
 	--enable-libdc1394
 	--enable-libfdk-aac
 	--enable-libflite

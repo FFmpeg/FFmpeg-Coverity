@@ -147,16 +147,17 @@ RUN \
     cd /root && \
     rm -rf kvazaar
 
-RUN \
-    cd /root && \
-    git clone --depth=1 https://gitlab.xiph.org/xiph/celt.git celt && \
-    cd celt && \
-    ./autogen.sh && \
-    ./configure --prefix=/usr && \
-    make -j"$(nproc)" && \
-    make install && \
-    cd /root && \
-    rm -rf celt
+# Server down
+#RUN \
+#    cd /root && \
+#    git clone --depth=1 https://gitlab.xiph.org/xiph/celt.git celt && \
+#    cd celt && \
+#    ./autogen.sh && \
+#    ./configure --prefix=/usr && \
+#    make -j"$(nproc)" && \
+#    make install && \
+#    cd /root && \
+#    rm -rf celt
 
 RUN \
     cd /root && \
