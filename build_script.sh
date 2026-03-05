@@ -11,7 +11,7 @@ rm coverity_tool.tgz
 mv cov-analysis-linux64-* cov-analysis-linux64
 export PATH="${PATH}:${PWD}/cov-analysis-linux64/bin"
 
-git clone --depth=1 https://git.videolan.org/git/ffmpeg.git ffmpeg
+git clone --depth=1 https://github.com/FFmpeg/FFmpeg.git ffmpeg
 cd ffmpeg
 
 # Not yet enabled:
